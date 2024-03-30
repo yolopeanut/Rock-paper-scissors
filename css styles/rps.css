@@ -1,0 +1,19 @@
+.emoji{
+    height: 70px;
+}
+
+.emoji-button{
+    border-radius: 100px;
+    padding: 30px;
+    cursor: pointer;
+    border-color: white;
+    background-color: rgb(25, 25, 25);
+    border-style: solid;
+}
+
+
+.reset-score-btn{
+    padding: 10px 20px 10px 20px;
+    font-weight: bold;
+    background-color: white;
+}
