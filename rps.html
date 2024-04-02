@@ -22,14 +22,16 @@
             Wins: 0, Losses: 0, Ties: 0
         </p>
         
+        <!-- Rock Button -->
         <button class="emoji-button"
         onclick="
-        setRandomChoice();
+        setRandomChoice(randomChoice);
         userChoice = 0;
         changeResult();">
             <img src="imgs/rock-emoji.png" alt="" class="emoji">
         </button>
 
+        <!-- Paper Button -->
         <button class="emoji-button"
         onclick="
         setRandomChoice();
@@ -38,6 +40,7 @@
             <img src="imgs/paper-emoji.png" class="emoji">
         </button>
 
+        <!-- Scissors Button -->
         <button class="emoji-button"
         onclick="
         setRandomChoice();
@@ -48,103 +51,20 @@
 
         <br></br>
 
+        <!-- Reset Score Button -->
         <button class = 'reset-score-btn' onclick="resetScore()
         ">Reset Score</button>
 
-        <script>
-            let userChoice =-1;
-            let randomChoice = -1;
-            const score = JSON.parse(localStorage.getItem('score')) || {
-                    Win:0,
-                    Losses:0,
-                    Ties:0
-                }
 
-            console.log(score)
+        <button class="auto-play-btn" onclick="
+        autoPlay();
+        ">
+            Auto Play
+
+        </button>
 
 
-
-            function setRandomChoice(){
-                ran = Math.round(Math.random() * 100);
-
-                if (ran <= 30 && ran>=0){randomChoice = 0;}
-                else if (ran <= 60 && ran>30){randomChoice = 1;}
-                else if (ran >60){randomChoice = 2;}
-
-
-
-            }
-
-            function returnAlertString(playerOrCompChoice){
-                if (playerOrCompChoice === 0){
-                    return 'Rock';
-                }
-
-                else if (playerOrCompChoice === 1){
-                    return 'Paper';
-                }
-
-                else if (playerOrCompChoice === 2){
-                    return 'Scissorss';
-                }
-                
-            }
-
-            function checkWin(){
-
-
-                if (userChoice ===0 && randomChoice === 0){score.Ties+=1; return 'Draw';}
-                else if(userChoice === 1 && randomChoice === 1){score.Ties+=1; return 'Draw';}
-                else if(userChoice === 2 && randomChoice === 2){score.Ties+=1; return 'Draw';}
-
-        
-                else if(userChoice === 0 && randomChoice === 1){score.Losses+=1; return 'Computer Wins!';}
-                else if(userChoice === 0 && randomChoice === 2){score.Win+=1; return 'You Win!';}
-
-                else if(userChoice === 1 && randomChoice === 2){score.Win+=1; return 'You Win!';}
-                else if(userChoice === 1 && randomChoice === 3){score.Losses+=1; return 'Computer Wins!';}
-
-                else if(userChoice === 2 && randomChoice === 1){score.Win+=1; return 'You Win!';}
-                else if(userChoice === 2 && randomChoice === 3){score.Losses+=1; return 'Computer Wins!';}
-
-                else if(userChoice === 1 && randomChoice === 0){score.Win+=1; return 'You Win!';}
-                else if(userChoice === 2 && randomChoice === 0){score.Losses+=1; return 'Computer Wins!';}
-
-                
-            }
-
-            function initResult(){
-                document.querySelector('.win-loss-ties').innerHTML = `Wins: ${score.Win}, Losses: ${score.Losses}, Ties: ${score.Ties}`
-
-            }
-            
-            function changeResult(){
-                document.querySelector('.p-win-lose').innerHTML = checkWin()
-
-                document.querySelector('.p-choices').innerHTML = `You: ${returnAlertString(userChoice)} <br></br> Computer: ${returnAlertString(randomChoice)}`
-                
-                document.querySelector('.win-loss-ties').innerHTML = `Wins: ${score.Win}, Losses: ${score.Losses}, Ties: ${score.Ties}`
-
-                localStorage.setItem('score', JSON.stringify(score));
-
-                
-
-            }
-
-            function resetScore(){
-                score.Win = 0
-                score.Losses = 0
-                score.Ties = 0
-                
-                localStorage.setItem('score', JSON.stringify(score));
-                document.querySelector('.win-loss-ties').innerHTML = `Wins: ${score.Win}, Losses: ${score.Losses}, Ties: ${score.Ties}`
-                console.log(score)
-
-            }
-
-            initResult()
-
-        </script>
+        <script src="rps.js"></script>
     </body>
 
 </html>
