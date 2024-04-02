@@ -12,6 +12,7 @@ console.log(score);
 
 
 
+
 function setRandomChoice(userOrComp){
 
     
@@ -28,12 +29,54 @@ function setRandomChoice(userOrComp){
         else if (ran <= 60 && ran>30){userChoice = 1;}
         else if (ran >60){userChoice = 2;}
     };
-
-    
-
-
-
 };
+
+
+document.querySelector('.js-rock-button').addEventListener('click',()=>{
+    setRandomChoice('Comp');
+    userChoice = 0;
+    changeResult();
+})
+
+document.querySelector('.js-paper-button').addEventListener('click', ()=>{
+    setRandomChoice('Comp');
+    userChoice = 1;
+    changeResult();
+})
+
+document.querySelector('.js-scissor-button').addEventListener('click', ()=>{
+    setRandomChoice('Comp');
+    userChoice = 2;
+    changeResult();
+})
+
+document.querySelector('.js-reset-btn').addEventListener('click',()=>{
+    resetScore()
+})
+
+document.querySelector('.js-auto-play-btn').addEventListener('click',()=>{
+    autoPlay();
+})
+
+document.body.addEventListener('keydown',(event)=>{
+    
+    if(event.key === '1'){
+        setRandomChoice('Comp');
+        userChoice = 0;
+        changeResult();
+    }
+    else if (event.key === '2'){
+        setRandomChoice('Comp');
+        userChoice = 1;
+        changeResult();
+    }
+    else if (event.key === '3'){
+        setRandomChoice('Comp');
+        userChoice = 2;
+        changeResult();
+    }
+})
+
 
 function returnAlertString(playerOrCompChoice){
     if (playerOrCompChoice === 0){
@@ -103,11 +146,12 @@ function resetScore(){
 }
 
 
+
 function autoPlay(){
 
     autoPlayBtn = document.querySelector('.auto-play-btn')
     if(!autoPlayBtn.classList.contains('is-auto-play')){
-        intervalID = setInterval(function(){
+        intervalID = setInterval(()=>{
                     setRandomChoice('User');
                     setRandomChoice('Comp');
                     changeResult();
@@ -127,5 +171,5 @@ function autoPlay(){
 }
 
 initResult()
-
+alert("Rock: Press '1' \nPaper: Press '2' \nScissors: Press '3'")
 

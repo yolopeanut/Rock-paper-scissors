@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="css styles/general.css">
     </head>
     <body >
+        aler
 
         <p>
             Rock paper Scissors
@@ -23,44 +24,29 @@
         </p>
         
         <!-- Rock Button -->
-        <button class="emoji-button"
-        onclick="
-        setRandomChoice(randomChoice);
-        userChoice = 0;
-        changeResult();">
+        <button class="emoji-button js-rock-button">
             <img src="imgs/rock-emoji.png" alt="" class="emoji">
         </button>
 
         <!-- Paper Button -->
-        <button class="emoji-button"
-        onclick="
-        setRandomChoice();
-        userChoice = 1;
-        changeResult();">
+        <button class="emoji-button js-paper-button">
             <img src="imgs/paper-emoji.png" class="emoji">
         </button>
 
         <!-- Scissors Button -->
-        <button class="emoji-button"
-        onclick="
-        setRandomChoice();
-        userChoice = 2;
-        changeResult();">
+        <button class="emoji-button js-scissor-button">
             <img src="imgs/scissors-emoji.png" alt="" class="emoji">
         </button>
 
         <br></br>
 
         <!-- Reset Score Button -->
-        <button class = 'reset-score-btn' onclick="resetScore()
-        ">Reset Score</button>
+        <button class = 'reset-score-btn js-reset-btn'>Reset Score</button>
 
 
-        <button class="auto-play-btn" onclick="
-        autoPlay();
-        ">
+        <!-- Auto Play button -->
+        <button class="auto-play-btn js-auto-play-btn">
             Auto Play
-
         </button>
 
 
